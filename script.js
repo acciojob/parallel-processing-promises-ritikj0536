@@ -1,6 +1,7 @@
 const output = document.getElementById("output");
 const errorDiv = document.getElementById("error");
 const loadingDiv = document.getElementById("loading");
+const downloadBtn = document.getElementById("download-images-button");
 
 const imageUrls = [
   "https://picsum.photos/id/237/200/300",
@@ -20,7 +21,7 @@ function downloadImage(url) {
 
 // Function to download all images in parallel
 function downloadImages() {
-  loadingDiv.style.display = "block"; // show spinner
+  loadingDiv.style.display = "block";
   errorDiv.textContent = "";
   output.innerHTML = "";
 
@@ -37,5 +38,5 @@ function downloadImages() {
     });
 }
 
-// Start downloading when the page loads
-window.onload = downloadImages;
+// 🔥 The Cypress test clicks this button, so attach listener
+downloadBtn.addEventListener("click", downloadImages);
